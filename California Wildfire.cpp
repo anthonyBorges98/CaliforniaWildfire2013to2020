@@ -18,9 +18,9 @@ void menuMain() {
     do {
         cout << "\n*************************************************"
             << "\n*             MENU-Displaying text              *"
-            << "\n* 1. Calling sortingList()                                  *"
-            << "\n* 2. Calling SearchCounty                        *"
-            << "\n* 3. Quit                                         *"
+            << "\n* 1. Calling sortingList()                      *"
+            << "\n* 2. Calling SearchCounty                       *"
+            << "\n* 3. Quit                                       *"
             << "\n*************************************************";
         cout << "\nSelect an option (1, 2, or 3): ";
         cin >> option;
@@ -97,6 +97,3 @@ void searchCounty() {
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-
-
-//This is just a test!!! !
