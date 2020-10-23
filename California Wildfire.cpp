@@ -1,12 +1,30 @@
 // California Wildfire.cpp : This file contains the 'main' function. Program execution begins and ends there.
 #include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
 using namespace std;
+
+struct FireInfo
+{
+    int acresBurned;
+    int year;
+    string county;
+    int fatalities;
+    int injuries;
+    int structDamaged;
+    int structDestroyed;
+    string name;
+};
 
 // Function prototypes
 void menuMain();
 void MenuSortingList();
 void searchCounty();
 void descendingOrder();
+void createVec(ifstream&, vector<FireInfo>&);
+int strToInt(string);
 
 int main()
 {
@@ -85,6 +103,60 @@ void MenuSortingList() {
 
 void searchCounty() {
 
+}
+
+void createVec(ifstream& file, vector<FireInfo>& fires){
+    //Creates a vector of struct FireInfo items
+    //@param is the csv file from which we will read and the vector of FireInfo
+    
+
+    string acresBurned, year, county, fatalities, injuries, structDamaged, structDestroyed, name;
+    int ab, yr, fa, in, sdm, sdy;//Abbreviated from the strings above. strings must be converted to ints
+    
+    FireInfo fireItem;
+
+    while(file.good()){
+        //Reads in all values as string
+        //Conversion from string to int done through stringstream
+        //Columns seperated by delimeter ',' , rows separated by delimeter '\n'
+
+        getline(file, acresBurned, ',');
+        ab = strToInt(acresBurned);
+        getline(file, year, ',');
+        yr = strToInt(year);
+        getline(file, county, ',');
+        getline(file, fatalities, ',');
+        fa = strToInt(fatalities);
+        getline(file, injuries, ',');
+        in = strToInt(injuries);
+        getline(file, structDamaged, ',');
+        sdm = strToInt(structDamaged);
+        getline(file, structDestroyed, ',');
+        sdy = strToInt(structDestroyed);
+        getline(file, name, '\n');
+
+        fireItem.acresBurned = ab;
+        fireItem.year = yr;
+        fireItem.county = county;
+        fireItem.fatalities = fa;
+        fireItem.injuries = in;
+        fireItem.structDamaged = sdm;
+        fireItem.structDestroyed = sdy;
+        fireItem.name = name;
+
+        fires.push_back(fireItem);
+
+    }
+}
+
+int strToInt(string s){
+    //Turns the given string into an int
+    //@param string read in from the file
+    //@return is the int converted from @param
+    int x;
+    stringstream sti(s);
+    sti >> x;
+    return x;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
