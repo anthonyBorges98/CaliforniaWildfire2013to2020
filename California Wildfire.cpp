@@ -4,9 +4,8 @@ using namespace std;
 
 // Function prototypes
 void menuMain();
-void MenuSortingList();
+void menuSortingList();
 void searchCounty();
-void descendingOrder();
 
 int main()
 {
@@ -16,7 +15,7 @@ int main()
 void menuMain() {
     int option;
     do {
-        cout << "\n*************************************************"
+        cout << "\n************************************************"
             << "\n*             MENU-Displaying text              *"
             << "\n* 1. Calling sortingList()                      *"
             << "\n* 2. Calling SearchCounty                       *"
@@ -28,7 +27,7 @@ void menuMain() {
         switch (option) {
         case 1:
             cout << "Calling MenuSortingList()";
-            MenuSortingList();
+            menuSortingList();
             break;
         case 2:
             cout << "Calling searchCounty()";
@@ -43,19 +42,19 @@ void menuMain() {
     } while (option != 3);
 }
 
-void MenuSortingList() {
+void menuSortingList() {
     int option;
     do {
         cout << "\n*************************************************"
-            << "\n*             MENU-sorting                      *"
+            << "\n*             MENU-display sorting              *"
             << "\n* 1. alphabetical order                         *"
-            << "\n* 2.  # of injuries                             *"
+            << "\n* 2. # of injuries                              *"
             << "\n* 3. # of acres destroyed                       *"
             << "\n* 4. # of people involved                       *"
-            << "\n* 5.  #acres burned per year                    *"
+            << "\n* 5. #acres burned per year                     *"
             << "\n* 6. Quit                                       *"
             << "\n*************************************************";
-        cout << "\nSelect an option (1, 2, or 3): ";
+        cout << "\nSelect an option (1, 2, 3, 4, 5, or 6): ";
         cin >> option;
 
         switch (option) {
@@ -86,14 +85,3 @@ void MenuSortingList() {
 void searchCounty() {
 
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
