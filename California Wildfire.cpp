@@ -26,15 +26,15 @@ void menuMain() {
 
         switch (option) {
         case 1:
-            cout << "Calling MenuSortingList()";
+            cout << "Calling MenuSortingList()" << endl;
             menuSortingList();
             break;
         case 2:
-            cout << "Calling searchCounty()";
+            cout << "Calling searchCounty()" << endl;
             searchCounty();
             break;
         case 3:
-
+            cout << "Quit" << endl;
             break;
         default:
             cout << "\nWRONG OPTION!\n" << endl;
@@ -51,7 +51,7 @@ void menuSortingList() {
             << "\n* 2. # of injuries                              *"
             << "\n* 3. # of acres destroyed                       *"
             << "\n* 4. # of people involved                       *"
-            << "\n* 5. #acres burned per year                     *"
+            << "\n* 5. # acres burned per year                    *"
             << "\n* 6. Quit                                       *"
             << "\n*************************************************";
         cout << "\nSelect an option (1, 2, 3, 4, 5, or 6): ";
@@ -59,22 +59,22 @@ void menuSortingList() {
 
         switch (option) {
         case 1:
-
+            cout << "Calling alphabetical order" << endl;
             break;
         case 2:
-
+            cout << "Calling # of injuries" << endl;
             break;
         case 3:
-
+            cout << "Calling # of acres destroyed" << endl;
             break;
         case 4:
-
+            cout << "Call # of people involved" << endl;
             break;
         case 5:
-
+            cout << "Call # acres burned per year" << endl;
             break;
         case 6:
-
+            cout << "Go back to main menu" << endl;
             break;
         default:
             cout << "\nWRONG OPTION!\n" << endl;
