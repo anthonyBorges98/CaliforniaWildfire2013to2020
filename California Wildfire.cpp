@@ -35,14 +35,25 @@ int main() {
     vector<FireInfo> fires;
 
     createVec(file, fires);
+
+    
+    cout << "acresBurned" << "\t";
+    cout << "year" << "\t";
+    cout << "county             ";
+    cout << "fatalities" << "\t";
+    cout << "     injuries" << "\t";
+    cout << "buildings damaged\t";
+    cout << "buildings destroyed\t";
+    cout << " type of fire" << endl;
+    
     for (unsigned int i = 0; i < fires.size(); i++) {
         cout << fires.at(i).acresBurned << "\t\t";
-        cout << fires.at(i).year << "\t\t";
-        cout << fires.at(i).county << "\t";
+        cout << fires.at(i).year << "\t";
+        cout << fires.at(i).county << "\t\t";
         cout << fires.at(i).fatalities << "\t\t";
         cout << fires.at(i).injuries << "\t\t";
         cout << fires.at(i).structDamaged << "\t\t";
-        cout << fires.at(i).structDestroyed << "\t\t";
+        cout << fires.at(i).structDestroyed << "\t\t    ";
         cout << fires.at(i).name << endl;
     }
 
@@ -87,14 +98,16 @@ void menuSortingList() {
     vector<FireInfo> fires;
 
     createVec(file, fires);
+
+
     for (unsigned int i = 0; i < fires.size(); i++) {
-        cout << fires.at(i).acresBurned << "\t\t";
-        cout << fires.at(i).year << "\t\t";
-        cout << fires.at(i).county << "\t";
-        cout << fires.at(i).fatalities << "\t\t";
-        cout << fires.at(i).injuries << "\t\t";
-        cout << fires.at(i).structDamaged << "\t\t";
-        cout << fires.at(i).structDestroyed << "\t\t";
+        cout << fires.at(i).acresBurned;
+        cout << fires.at(i).year;
+        cout << fires.at(i).county;
+        cout << fires.at(i).fatalities;
+        cout << fires.at(i).injuries;
+        cout << fires.at(i).structDamaged;
+        cout << fires.at(i).structDestroyed;
         cout << fires.at(i).name << endl;
     }
 
@@ -176,8 +189,8 @@ void createVec(ifstream& file, vector<FireInfo>& fires) {
         yr = strToInt(year);
         getline(file, county, ',');
 
-        // This makes county to have 20 elements. 
-        for (i = 0; i < 20; i++) {
+        // This makes county to have 16 elements. 
+        for (i = 0; i < 16; i++) {
             if (i > county.size()) {
                 county.insert(county.end(), ' ');
             }
