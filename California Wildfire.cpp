@@ -22,6 +22,7 @@ struct FireInfo
 void menuMain();
 void menuSortingList();
 void searchCounty(ifstream&, const vector<FireInfo>);
+void listOfCounty();
 
 void createVec(ifstream&, vector<FireInfo>&);
 int strToInt(string);
@@ -127,12 +128,21 @@ void menuSortingList() {
 // This method searches certain county and display the county's descriptions.
 void searchCounty(ifstream& file, const vector<FireInfo> fires) {
 	string name;
-	string error;
+	string option;
 	int i = 0;
 	int count = 0;
 
 	// I need cin.ignore() to make getline(cin, name) to work.
 	// This checks for unncessary typing.
+
+	cout << "Do you want to see the list of county for search?" << endl;
+	cout << "Type yes if you want to see or anything to leave this option." << endl;
+
+	cin >> option;
+
+	if (option == "yes") {
+		listOfCounty();
+	}
 
 	cin.ignore();
 	cout << "\nWhat county are you searching for?";
@@ -183,6 +193,17 @@ void searchCounty(ifstream& file, const vector<FireInfo> fires) {
 	cout << endl;
 }
 
+void listOfCounty() {
+	cout << "Alameda\nAlpine\nAmador\nButte\nCalaveras\nColusa"
+		<< "Contra Costa\nDel Norte\nEl Dorado\nFresno\nGlenn\nHumboldt"
+		<< "\nImperial\nInyo\nKern\nKings\nLake\nLassen\nLos Angeles\nMadera"
+		<< "\nMarin\nMariposa\nMendocino\nMerced\nModoc\nMono\nMonterey"
+		<< "\nNapa\nNevada\nOrange\nPlacer\nPlumas\nRiverside\nSacramento"
+		<< "\nSan Benito\nSan Bernardino\nSan Diego\nSan Francisco\nSan Joaquin"
+		<< "\nSan Luis Obispo\nSan Mateo\nSanta Barbara\nSanta Clara\nSanta Cruz\nShasta"
+		<< "\nSierra\nSiskiyou\nSolano\nSonoma\nStanislaus\nSutter\nTehama\nTrinity"
+		<< "\nTulare\nTuolumne\nVentura\nYolo\nYuba " << endl;
+}
 
 void createVec(ifstream& file, vector<FireInfo>& fires) {
 
