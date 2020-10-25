@@ -23,13 +23,31 @@ void menuMain();
 void menuSortingList();
 void searchCounty();
 
-void descendingOrder();
 void createVec(ifstream&, vector<FireInfo>&);
 int strToInt(string);
 
 
 int main() {
-    menuMain();
+    ifstream file;
+
+    file.open("final_fires_copy.csv");
+
+    vector<FireInfo> fires;
+
+    createVec(file, fires);
+    for (unsigned int i = 0; i < fires.size(); i++) {
+        cout << fires.at(i).acresBurned << "\t\t";
+        cout << fires.at(i).year << "\t\t";
+        cout << fires.at(i).county << "\t";
+        cout << fires.at(i).fatalities << "\t\t";
+        cout << fires.at(i).injuries << "\t\t";
+        cout << fires.at(i).structDamaged << "\t\t";
+        cout << fires.at(i).structDestroyed << "\t\t";
+        cout << fires.at(i).name << endl;
+    }
+
+    //menuMain();
+    file.close();
 }
 
 void menuMain() {
@@ -64,6 +82,22 @@ void menuMain() {
 
 void menuSortingList() {
     int option;
+    ifstream file;
+    //file.open("final_fires_copy.csv");
+    vector<FireInfo> fires;
+
+    createVec(file, fires);
+    for (unsigned int i = 0; i < fires.size(); i++) {
+        cout << fires.at(i).acresBurned << "\t\t";
+        cout << fires.at(i).year << "\t\t";
+        cout << fires.at(i).county << "\t";
+        cout << fires.at(i).fatalities << "\t\t";
+        cout << fires.at(i).injuries << "\t\t";
+        cout << fires.at(i).structDamaged << "\t\t";
+        cout << fires.at(i).structDestroyed << "\t\t";
+        cout << fires.at(i).name << endl;
+    }
+
     do {
         cout << "\n*************************************************"
             << "\n*             MENU-display sorting              *"
@@ -76,7 +110,7 @@ void menuSortingList() {
             << "\n* 7. # of structures destroyed                  *"
             << "\n* 8. Quit                                       *"
             << "\n*************************************************";
-        cout << "\nSelect an option (1, 2, 3, 4, 5, or 6): ";
+        cout << "\nSelect an option (1, 2, 3, 4, 5, 6, 7, or 8): ";
         cin >> option;
 
         switch (option) {
@@ -115,26 +149,40 @@ void searchCounty() {
 }
 
 
-void createVec(ifstream& file, vector<FireInfo>& fires){
+void createVec(ifstream& file, vector<FireInfo>& fires) {
+
     //Creates a vector of struct FireInfo items
     //@param is the csv file from which we will read and the vector of FireInfo
-    
+
+    if (!file.is_open()) {
+        cout << "Could not open file numFile.txt." << endl;
+        cout << 1; // 1 indicates error
+
+    }
 
     string acresBurned, year, county, fatalities, injuries, structDamaged, structDestroyed, name;
     int ab, yr, fa, in, sdm, sdy;//Abbreviated from the strings above. strings must be converted to ints
-    
+    int i;
     FireInfo fireItem;
+    
 
-    while(file.good()){
+    while (file.good()) {
         //Reads in all values as string
         //Conversion from string to int done through stringstream
         //Columns seperated by delimeter ',' , rows separated by delimeter '\n'
-
         getline(file, acresBurned, ',');
         ab = strToInt(acresBurned);
         getline(file, year, ',');
         yr = strToInt(year);
         getline(file, county, ',');
+
+        // This makes county to have 20 elements. 
+        for (i = 0; i < 20; i++) {
+            if (i > county.size()) {
+                county.insert(county.end(), ' ');
+            }
+        }
+
         getline(file, fatalities, ',');
         fa = strToInt(fatalities);
         getline(file, injuries, ',');
@@ -159,7 +207,7 @@ void createVec(ifstream& file, vector<FireInfo>& fires){
     }
 }
 
-int strToInt(string s){
+int strToInt(string s) {
     //Turns the given string into an int
     //@param string read in from the file
     //@return is the int converted from @param
@@ -168,18 +216,3 @@ int strToInt(string s){
     sti >> x;
     return x;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
-
-
-//This is just a test!!! !
-
