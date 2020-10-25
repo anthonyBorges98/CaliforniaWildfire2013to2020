@@ -21,13 +21,20 @@ struct FireInfo
 // Function prototypes
 void menuMain();
 void menuSortingList();
-void searchCounty();
+void searchCounty(ifstream&, const vector<FireInfo>);
 
 void createVec(ifstream&, vector<FireInfo>&);
 int strToInt(string);
 
 
 int main() {
+    //searchCounty();
+    menuMain();
+    
+}
+
+void menuMain() {
+    int option;
     ifstream file;
 
     file.open("final_fires_copy.csv");
@@ -36,33 +43,6 @@ int main() {
 
     createVec(file, fires);
 
-    
-    cout << "acresBurned" << "\t";
-    cout << "year" << "\t";
-    cout << "county             ";
-    cout << "fatalities" << "\t";
-    cout << "     injuries" << "\t";
-    cout << "buildings damaged\t";
-    cout << "buildings destroyed\t";
-    cout << " type of fire" << endl;
-    
-    for (unsigned int i = 0; i < fires.size(); i++) {
-        cout << fires.at(i).acresBurned << "\t\t";
-        cout << fires.at(i).year << "\t";
-        cout << fires.at(i).county << "\t\t";
-        cout << fires.at(i).fatalities << "\t\t";
-        cout << fires.at(i).injuries << "\t\t";
-        cout << fires.at(i).structDamaged << "\t\t";
-        cout << fires.at(i).structDestroyed << "\t\t    ";
-        cout << fires.at(i).name << endl;
-    }
-
-    //menuMain();
-    file.close();
-}
-
-void menuMain() {
-    int option;
     do {
         cout << "\n************************************************"
             << "\n*             MENU-Displaying text              *"
@@ -80,10 +60,12 @@ void menuMain() {
             break;
         case 2:
             cout << "Calling searchCounty()" << endl;
-            searchCounty();
+            searchCounty(file, fires);
+
             break;
         case 3:
             cout << "Quit" << endl;
+            file.close();
             break;
         default:
             cout << "\nWRONG OPTION!\n" << endl;
@@ -93,23 +75,8 @@ void menuMain() {
 
 void menuSortingList() {
     int option;
-    ifstream file;
-    //file.open("final_fires_copy.csv");
-    vector<FireInfo> fires;
-
-    createVec(file, fires);
 
 
-    for (unsigned int i = 0; i < fires.size(); i++) {
-        cout << fires.at(i).acresBurned;
-        cout << fires.at(i).year;
-        cout << fires.at(i).county;
-        cout << fires.at(i).fatalities;
-        cout << fires.at(i).injuries;
-        cout << fires.at(i).structDamaged;
-        cout << fires.at(i).structDestroyed;
-        cout << fires.at(i).name << endl;
-    }
 
     do {
         cout << "\n*************************************************"
@@ -157,7 +124,48 @@ void menuSortingList() {
     } while (option != 8);
 }
 
-void searchCounty() {
+void searchCounty(ifstream& file, const vector<FireInfo> fires) {
+    string name;
+    int i;
+    int count = 0;
+
+    cin.ignore();
+    cout << "What county are you searching for?" << endl;
+    cout << "Example:Los Angeles, Riverside, San Diego, Orange" << endl;
+    getline(cin, name);
+
+    for (i = 0; i < 16; i++) {
+        if (i > name.size()) {
+            name.insert(name.end(), ' ');
+        }
+    }
+
+    cout << "acresBurned" << "\t";
+    cout << "year" << "\t";
+    cout << "county             ";
+    cout << "fatalities" << "\t";
+    cout << "     injuries" << "\t";
+    cout << "buildings damaged   ";
+    cout << "buildings destroyed\t";
+    cout << " type of fire" << endl;
+
+    for (unsigned int i = 0; i < fires.size(); i++) {
+
+        if (fires.at(i).county == name) {
+
+            cout << fires.at(i).acresBurned << "\t\t";
+            cout << fires.at(i).year << "\t";
+            cout << fires.at(i).county << "\t\t";
+            cout << fires.at(i).fatalities << "\t\t";
+            cout << fires.at(i).injuries << "\t\t";
+            cout << fires.at(i).structDamaged << "\t\t";
+            cout << fires.at(i).structDestroyed << "\t\t    ";
+            cout << fires.at(i).name << endl;
+            count++;
+        }
+
+    }
+    cout << "The list had shown " << count << endl;
 
 }
 
