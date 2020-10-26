@@ -381,27 +381,33 @@ void sortByDestroyed(vector<FireInfo>& fires) {
 
 
 void printVector(const vector<FireInfo>& tempFires) {
-
+	cout << "____________________________________________";
+	cout << "____________________________________________";
+	cout << "__________________________________________________" << endl;
 	cout << endl;
-	cout << "acresBurned" << "\t";
-	cout << "year" << "\t";
-	cout << "county             ";
-	cout << "fatalities" << "\t";
-	cout << "     injuries" << "\t";
-	cout << "buildings damaged   ";
-	cout << "buildings destroyed\t";
+	cout << "acresBurned" << "\t|";
+	cout << "year" << "\t|\t";
+	cout << "county  \t|";
+	cout << "fatalities" << "\t|";
+	cout << "     injuries " << "\t|";
+	cout << "  buildings   \t|";
+	cout << "  buildings \t|  ";
 	cout << " type of fire" << endl;
-	cout << endl;
-	
+	cout << "\t\t|\t|\t\t\t|\t\t|\t\t|   damaged\t|  destroyed\t|\t" << endl;
+	cout << "____________________________________________";
+	cout << "____________________________________________";
+	cout << "__________________________________________________"<< endl;
 	for (unsigned int i = 0; i < tempFires.size(); i++) {
-		cout << tempFires.at(i).acresBurned << "\t\t";
-		cout << tempFires.at(i).year << "\t\t";
-		cout<<tempFires.at(i).county <<"\t";
-		cout << tempFires.at(i).fatalities << "\t\t";
-		cout << tempFires.at(i).injuries << "\t\t";
-		cout << tempFires.at(i).structDamaged << "\t\t";
-		cout << tempFires.at(i).structDestroyed << "\t\t";
+		cout << tempFires.at(i).acresBurned << "\t\t|";
+		cout << tempFires.at(i).year << "\t|\t";
+		cout<<tempFires.at(i).county <<"|\t";
+		cout << tempFires.at(i).fatalities << "\t|\t";
+		cout << tempFires.at(i).injuries << "\t|\t";
+		cout << tempFires.at(i).structDamaged << "\t|\t";
+		cout << tempFires.at(i).structDestroyed << "\t|\t";
 		cout << tempFires.at(i).name << endl;
 	}
-	cout << endl << endl;
+	cout << "____________________________________________";
+	cout << "____________________________________________";
+	cout << "__________________________________________________" << endl;
 }
