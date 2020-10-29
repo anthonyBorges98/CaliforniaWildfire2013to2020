@@ -5,9 +5,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
-class FireInfo
-{
-public:
+class FireInfo{
 
 private:
 	int acresBurned;
@@ -19,6 +17,11 @@ private:
 	int structDestroyed;
 	string name;
 public:
+    FireInfo();
+    FireInfo(int acresBurned, int year, string county,
+    int fatalities, int injuries,int structDamaged,
+    int structDestroyed, string name);
+
     int getAcresBurned() const;
     void setAcresBurned(int acresBurned);
 
