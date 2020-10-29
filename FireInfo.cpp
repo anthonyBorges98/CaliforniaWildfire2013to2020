@@ -1,51 +1,106 @@
+#include "FireInfo.h"
 
-#ifndef FIREINFOH
-#define FIREINFOH
+FireInfo::FireInfo() {
+    acresBurned = 0;
+    year = 0;
+    county = "None";
+    fatalities = 0;
+    injuries = 0;
+    structDamaged = 0;
+    structDestroyed = 0;
+    name = "None";
+}
 
-#include <string>
-#include <iostream>
-using namespace std;
-class FireInfo{
+FireInfo::FireInfo(int acresBurned, int year, string county,
+    int fatalities, int injuries, int structDamaged,
+    int structDestroyed, string name) {
+    this->acresBurned = acresBurned;
+    this->year = year;
+    this->county = county;
+    this->fatalities = fatalities;
+    this->injuries = injuries;
+    this->structDamaged = structDamaged;
+    this->structDestroyed = structDestroyed;
+    this->name = name;
+}
 
-private:
-	int acresBurned;
-	int year;
-	string county;
-	int fatalities;
-	int injuries;
-	int structDamaged;
-	int structDestroyed;
-	string name;
-public:
-    FireInfo();
-    FireInfo(int acresBurned, int year, string county,
-    int fatalities, int injuries,int structDamaged,
-    int structDestroyed, string name);
+int FireInfo::getAcresBurned() const
+{
+    return acresBurned;
+}
 
-    int getAcresBurned() const;
-    void setAcresBurned(int acresBurned);
+void FireInfo::setAcresBurned(int acresBurned)
+{
+    this->acresBurned = acresBurned;
+}
 
-    int getYear() const;
-    void setYear(int year);
+int FireInfo::getYear() const
+{
+    return year;
+}
 
-    string getCounty() const;
-    void setCounty(string county);
+void FireInfo::setYear(int year)
+{
+    this->year = year;
+}
 
-    int getFatalities() const;
-    void setFatalities(int fatalities);
+string FireInfo::getCounty() const
+{
+    return county;
+}
 
-    int getInjuries() const;
-    void setInjuries(int injuries);
+void FireInfo::setCounty(string county)
+{
+    this->county = county;
+}
 
-    int getStructDamaged() const;
-    void setStructDamaged(int structDamaged);
+int FireInfo::getFatalities() const
+{
+    return fatalities;
+}
 
-    int getStructDestroyed() const;
-    void setStructDestroyed(int structDestroyed);
+void FireInfo::setFatalities(int fatalities)
+{
+    this->fatalities = fatalities;
+}
 
-    string getName() const;
-    void setName(string name);
+int FireInfo::getInjuries() const
+{
+    return injuries;
+}
 
-};
+void FireInfo::setInjuries(int injuries)
+{
+    this->injuries = injuries;
+}
 
-#endif
+int FireInfo::getStructDamaged() const
+{
+    return structDamaged;
+}
+
+void FireInfo::setStructDamaged(int structDamaged)
+{
+    this->structDamaged = structDamaged;
+}
+
+int FireInfo::getStructDestroyed() const
+{
+    return structDestroyed;
+}
+
+void FireInfo::setStructDestroyed(int structDestroyed)
+{
+    this->structDestroyed = structDestroyed;
+}
+
+string FireInfo::getName() const
+{
+    return name;
+}
+
+void FireInfo::setName(string name)
+{
+    this->name = name;
+}
+
