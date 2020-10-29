@@ -1,3 +1,0 @@
-C:\Users\borge\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\202.7660.37\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\midtermphase2.dir/objects.a
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\midtermphase2.dir/objects.a @CMakeFiles\midtermphase2.dir\objects1.rsp
-C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\midtermphase2.dir/objects.a -Wl,--no-whole-archive  -o midtermphase2.exe -Wl,--out-implib,libmidtermphase2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\midtermphase2.dir\linklibs.rsp
