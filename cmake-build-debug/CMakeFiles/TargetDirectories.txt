@@ -1,0 +1,3 @@
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/cmake-build-debug/CMakeFiles/midtermphase2.dir
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/cmake-build-debug/CMakeFiles/rebuild_cache.dir

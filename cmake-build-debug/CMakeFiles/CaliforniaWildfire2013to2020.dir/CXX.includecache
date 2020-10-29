@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/FireInfo.h
+string
+-
+iostream
+-
+vector
+-
+fstream
+-
+sstream
+-
+
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/SortFunctions.cpp
+FireInfo.h
+C:/Users/borge/CLionProjects/midtermphase2/CaliforniaWildfire2013to2020/FireInfo.h
+
