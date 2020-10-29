@@ -1,3 +1,4 @@
+#include "FireInfo.h"
 void sortByFatalities(vector<FireInfo>&);
 void sortByInjuries(vector<FireInfo>&);
 void sortByDamaged(vector<FireInfo>&);
@@ -8,13 +9,13 @@ void sortByFatalities(vector<FireInfo>& fires){
 	
 	vector<FireInfo> tempFires;
 	for(unsigned int i = 0; i<fires.size(); i++){
-		if(fires.at(i).fatalities == 0){
+		if(fires.at(i).getFatalities() == 0){
 			tempFires.push_back(fires.at(i));
-		}else if(fires.at(i).fatalities >= tempFires.at(0).fatalities){
+		}else if(fires.at(i).getFatalities() >= tempFires.at(0).getFatalities()){
 			tempFires.insert(tempFires.begin(), fires.at(i));
 		}else{
 			int u = 1;
-			while(fires.at(i).fatalities < tempFires.at(u).fatalities){
+			while(fires.at(i).getFatalities() < tempFires.at(u).getFatalities()){
 				u++;
 			}
 			tempFires.insert(tempFires.begin()+u, fires.at(i));
@@ -27,13 +28,13 @@ void sortByInjuries(vector<FireInfo>&fires){
 
 	vector<FireInfo> tempFires;
 	for(unsigned int i = 0; i<fires.size(); i++){
-		if(fires.at(i).injuries == 0){
+		if(fires.at(i).getInjuries() == 0){
 			tempFires.push_back(fires.at(i));
-		}else if(fires.at(i).injuries >= tempFires.at(0).injuries){
+		}else if(fires.at(i).getInjuries() >= tempFires.at(0).getInjuries()){
 			tempFires.insert(tempFires.begin(), fires.at(i));
 		}else{
 			int u = 1;
-			while(fires.at(i).injuries < tempFires.at(u).injuries){
+			while(fires.at(i).getInjuries() < tempFires.at(u).getInjuries()){
 				u++;
 			}
 			tempFires.insert(tempFires.begin()+u, fires.at(i));
@@ -46,13 +47,13 @@ void sortByDamaged(vector<FireInfo>&fires){
 
 	vector<FireInfo> tempFires;
 	for(unsigned int i = 0; i<fires.size(); i++){
-		if(fires.at(i).structDamaged == 0){
+		if(fires.at(i).getStructDamaged() == 0){
 			tempFires.push_back(fires.at(i));
-		}else if(fires.at(i).structDamaged >= tempFires.at(0).structDamaged){
+		}else if(fires.at(i).getStructDamaged() >= tempFires.at(0).getStructDamaged()){
 			tempFires.insert(tempFires.begin(), fires.at(i));
 		}else{
 			int u = 1;
-			while(fires.at(i).structDamaged < tempFires.at(u).structDamaged){
+			while(fires.at(i).getStructDamaged() < tempFires.at(u).getStructDamaged()){
 				u++;
 			}
 			tempFires.insert(tempFires.begin()+u, fires.at(i));
@@ -65,13 +66,13 @@ void sortByDestroyed(vector<FireInfo>&fires){
 
 	vector<FireInfo> tempFires;
 	for(unsigned int i = 0; i<fires.size(); i++){
-		if(fires.at(i).structDestroyed == 0){
+		if(fires.at(i).getStructDestroyed() == 0){
 			tempFires.push_back(fires.at(i));
-		}else if(fires.at(i).structDestroyed >= tempFires.at(0).structDestroyed){
+		}else if(fires.at(i).getStructDestroyed() >= tempFires.at(0).getStructDestroyed()){
 			tempFires.insert(tempFires.begin(), fires.at(i));
 		}else{
 			int u = 1;
-			while(fires.at(i).structDestroyed < tempFires.at(u).structDestroyed){
+			while(fires.at(i).getStructDestroyed() < tempFires.at(u).getStructDestroyed()){
 				u++;
 			}
 			tempFires.insert(tempFires.begin()+u, fires.at(i));
@@ -85,14 +86,14 @@ void sortByDestroyed(vector<FireInfo>&fires){
 void printVector(const vector<FireInfo>& tempFires){
 
 	for(unsigned int i =0; i < tempFires.size(); i++){
-		cout<<tempFires.at(i).acresBurned <<"\t\t";
-		cout<<tempFires.at(i).year <<"\t\t";
-		//cout<<tempFires.at(i).county <<"\t";
-		cout<<tempFires.at(i).fatalities <<"\t\t";
-		cout<<tempFires.at(i).injuries <<"\t\t";
-		cout<<tempFires.at(i).structDamaged <<"\t\t";
-		cout<<tempFires.at(i).structDestroyed <<"\t\t";
-		cout<<tempFires.at(i).name << endl;
+		cout<<tempFires.at(i).getAcresBurned() <<"\t\t";
+		cout<<tempFires.at(i).getYear() <<"\t\t";
+		cout<<tempFires.at(i).getCounty() <<"\t";
+		cout<<tempFires.at(i).getFatalities() <<"\t\t";
+		cout<<tempFires.at(i).getInjuries() <<"\t\t";
+		cout<<tempFires.at(i).getStructDamaged() <<"\t\t";
+		cout<<tempFires.at(i).getStructDestroyed() <<"\t\t";
+		cout<<tempFires.at(i).getName() << endl;
 	}
 	cout << endl << endl;
 }
