@@ -4,6 +4,9 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include <fstream>
+#include <sstream>
 using namespace std;
 class FireInfo{
 
@@ -45,6 +48,23 @@ public:
 
     string getName() const;
     void setName(string name);
+
+    // Search County
+    void searchCounty(ifstream&, const vector<FireInfo>);
+    void listOfCounty();
+
+    // Sorting function prototypes
+    void sortByFatalities(vector<FireInfo>&);
+    void sortByInjuries(vector<FireInfo>&);
+    void sortByDamaged(vector<FireInfo>&);
+    void sortByDestroyed(vector<FireInfo>&);
+    void printVector(const vector<FireInfo>&);
+
+    void createVec(ifstream&, vector<FireInfo>&);
+    int strToInt(string);
+
+    
+
 
 };
 
